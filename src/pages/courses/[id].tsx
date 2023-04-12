@@ -12,6 +12,7 @@ function CourseDetails() {
   return (
     <>
       <Header />
+        <div >
       <div className="pt-4 pl-4 md:pl-8 md:pt-8 w-1/12 cursor-pointer">
         <Link href="/">
           {" "}
@@ -37,6 +38,7 @@ function CourseDetails() {
           {course ? "查看PDF" : null}
         </Link>
       </div>
+        </div>
     </>
   );
 }
