@@ -8,7 +8,11 @@ module.exports = {
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx}",
   ],  theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'noto': ['"Noto Sans Simplified Chinese"']
+      }
+    },
   },
   plugins: [],
 }
