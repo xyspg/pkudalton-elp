@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { list as enList } from "@/data/en/list";
 import { list as zhList } from "@/data/zh/list";
+import { list as jaList } from "@/data/ja/list";
 import Header from "@/components/Header";
 import Link from "next/link";
 import { ArrowLeftIcon, OpenInNewWindowIcon } from "@radix-ui/react-icons";
@@ -11,7 +12,7 @@ function CourseDetails() {
   const router = useRouter();
   const { id } = router.query;
   const { locale } = router;
-  const list = locale === "zh" ? zhList : enList;
+  const list = locale === "zh" ? zhList : locale === 'ja' ? jaList : enList;
   const course = list.find(
     (c) => c.id === parseInt(typeof id === "string" ? id : "")
   );
