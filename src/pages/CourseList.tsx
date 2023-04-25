@@ -51,15 +51,9 @@ const CourseList = () => {
     }
   }, [selectedCategory, categories, list, locale]);
 
-  const initialLocale = useRef(locale);
-
   useEffect(() => {
-    if (initialLocale.current !== locale) {
-      if (typeof window !== "undefined") {
-        window.location.reload();
-      }
-    }
-  }, [locale]);
+  setFilteredCourses(null);
+},[locale]);
 
   return (
     <>
