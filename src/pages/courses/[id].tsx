@@ -3,9 +3,9 @@ import { list as enList } from "@/data/en/list";
 import { list as zhList } from "@/data/zh/list";
 import Header from "@/components/Header";
 import Link from "next/link";
-import { translate } from "@/../utils/translate";
 import { ArrowLeftIcon, OpenInNewWindowIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 function CourseDetails() {
   const router = useRouter();
@@ -15,10 +15,7 @@ function CourseDetails() {
   const course = list.find(
     (c) => c.id === parseInt(typeof id === "string" ? id : "")
   );
-  const viewPdfText = translate(locale, {
-    en: "View PDF",
-    zh: "查看PDF",
-  });
+  const t = useTranslations("CourseDetails");
 
   return (
     <>
@@ -51,7 +48,7 @@ function CourseDetails() {
             href={course ? `/pdf/${course.pdfUrl}.pdf` : "#"}
             className="text-xs text-slate-700 dark:text-white ml-2"
           >
-            {course ? viewPdfText : null}
+            {course ? t("view_pdf") : null}
           </Link>
         </div>
       </div>

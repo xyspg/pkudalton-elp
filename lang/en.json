@@ -1,0 +1,18 @@
+{
+  "Header": {
+    "title": "ELP Program List"
+  },
+  "Head": {
+    "title": "ELP Program List 2023",
+    "description": "Dalton Academy Experiential Learning Program List 2023"
+  },
+  "CourseDetails": {
+    "view_pdf": "View PDF"
+  },
+  "CourseList": {
+    "selectText": "Select Category",
+    "selectTextPlaceholder": "All Programs",
+    "day": "Days",
+    "cost": "CNY"
+  }
+}

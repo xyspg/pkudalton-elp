@@ -1,7 +1,8 @@
 import { list as enList } from "@/data/en/list";
 import { list as zhList } from "@/data/zh/list";
+import { list as jaList } from "@/data/ja/list";
 import Link from "next/link";
-import { Key, useEffect, useState } from "react";
+import { Key, useEffect, useRef, useState } from "react";
 import {
   Select,
   SelectContent,
@@ -10,6 +11,7 @@ import {
   SelectValue,
 } from "@/components/ui/Select";
 import { useRouter } from "next/router";
+import { useTranslations } from "next-intl";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -32,13 +34,14 @@ const CourseList = () => {
   const [filteredCourses, setFilteredCourses] = useState([]);
   const router = useRouter();
   const { locale } = router;
-  const list = locale === "zh" ? zhList : enList;
+  const list = locale === "zh" ? zhList : locale === "ja" ? jaList : enList;
+  const t = useTranslations("CourseList");
 
   const [categories, setCategories] = useState({});
 
   useEffect(() => {
     setCategories(getCategories(list));
-  }, [locale]);
+  }, [list, locale]);
 
   useEffect(() => {
     if (selectedCategory) {
@@ -46,34 +49,39 @@ const CourseList = () => {
     } else {
       setFilteredCourses(list);
     }
-  }, [selectedCategory, categories]);
+  }, [selectedCategory, categories, list, locale]);
 
-  const selectText = locale === "zh" ? "选择课程类型" : "Select Category";
-  const selectTextPlaceholder = locale === "zh" ? "全部课程" : "All Courses";
-  const day = locale === "zh" ? "天" : "days";
-  const cost = locale === "zh" ? "元" : "RMB";
+  const initialLocale = useRef(locale);
+
+  useEffect(() => {
+    if (initialLocale.current !== locale) {
+      if (typeof window !== "undefined") {
+        window.location.reload();
+      }
+    }
+  }, [locale]);
 
   return (
     <>
       <div className="h-full w-full max-w-md px-4 py-8 sm:px-0 shadow-sm ">
         <div className="ml-2 mb-4">
           <p className="text-slate-800 text-xs mb-1 dark:text-white">
-            {selectText}
+            {t("selectText")}
           </p>
           <Select
             onValueChange={(value) => {
               setSelectedCategory(value);
             }}
           >
-            <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder={selectTextPlaceholder} />
+            <SelectTrigger className="w-[250px]">
+              <SelectValue placeholder={t("selectTextPlaceholder")} />
             </SelectTrigger>
             <SelectContent>
               <SelectItem
                 value={null}
                 onSelect={() => setSelectedCategory(null)}
               >
-                {selectTextPlaceholder}
+                {t("selectTextPlaceholder")}
               </SelectItem>
               {Object.keys(categories).map((category) => (
                 <SelectItem
@@ -95,6 +103,7 @@ const CourseList = () => {
               title: string;
               duration: number;
               cost: number;
+              location: string;
             }) => (
               <li
                 key={post.id}
@@ -106,14 +115,14 @@ const CourseList = () => {
 
                 <ul className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500 dark:text-gray-100">
                   <li>
-                    {post.duration} {day}
+                    {post.duration} {t("day")}
                   </li>
                   <li>&middot;</li>
                   <li>
-                    {post.cost} {cost}
+                    {post.cost} {t("cost")}
                   </li>
-                  <li>&middot;</li>
-                  <li>{post.category}</li>
+                  {/*<li>&middot;</li>*/}
+                  {/*<li>{post.location}</li>*/}
                 </ul>
                 <Link
                   href={`/courses/${post.id}`}

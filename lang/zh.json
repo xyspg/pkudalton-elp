@@ -1,0 +1,18 @@
+{
+  "Header": {
+    "title": "ELP 项目列表"
+  },
+  "Head": {
+    "title": "ELP 项目列表 · 2023",
+    "description": "道尔顿学院ELP项目列表 · 2023"
+  },
+  "CourseDetails": {
+    "view_pdf": "查看PDF"
+  },
+  "CourseList": {
+    "selectText": "选择项目类型",
+    "selectTextPlaceholder": "全部项目",
+    "day": "天",
+    "cost": "元"
+  }
+}

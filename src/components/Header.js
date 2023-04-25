@@ -1,7 +1,9 @@
 import React from "react";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useTranslations } from "next-intl";
 
 function Header() {
+  const t = useTranslations("Header");
   return (
     <>
       <div
@@ -13,7 +15,7 @@ function Header() {
         </div>
         <div className="px-8 md:px-16 dark:text-white">
           <h1 className="text-4xl md:text-5xl font-bold text-left">
-            ELP 课程列表
+            {t("title")}
           </h1>
           <h2 className="font-sans text-1xl md:pt-2 text-left">
             Experience Learning Program

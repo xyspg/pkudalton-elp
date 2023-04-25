@@ -1,0 +1,18 @@
+{
+  "Header": {
+    "title": "ELP プロジェクトリスト"
+  },
+  "Head": {
+    "title": "ELP プロジェクトリスト · 2023",
+    "description": "道尔顿学院ELPプロジェクトリスト · 2023"
+  },
+  "CourseDetails": {
+    "view_pdf": "PDFを表示"
+  },
+  "CourseList": {
+    "selectText": "プロジェクトタイプを選択",
+    "selectTextPlaceholder": "すべてのプロジェクト",
+    "day": "日",
+    "cost": "人民元"
+  }
+}

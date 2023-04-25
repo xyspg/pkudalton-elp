@@ -5,6 +5,7 @@ export const list = [
     title: "中国科学院大学实验探究 —— 计算光学成像",
     duration: "3",
     cost: "3000",
+    location: "中科院",
     pdfUrl: "中国科学院大学实验探究--计算光学成像",
     imgUrl: "光学成像_img.png",
   },
@@ -14,6 +15,7 @@ export const list = [
     title: "肺炎多糖结合疫苗的制备和免疫效价分析",
     duration: "5",
     cost: "5000",
+    location: "",
     pdfUrl:
       "北大附中-疫苗2-肺炎多糖结合疫苗的制备和免疫效价分析-过程工程所0625",
   },
