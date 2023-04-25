@@ -13,7 +13,7 @@ const LanguageSwitcher = () => {
     <div>
       <RiTranslate2
         onClick={() => changeLanguage(locale === "en" ? "zh" : "en")}
-        className="cursor-pointer text-2xl text-slate-900 hover:text-slate-700 absolute top-8 right-8"
+        className="cursor-pointer text-2xl text-slate-900 hover:text-slate-700"
       />
     </div>
   );

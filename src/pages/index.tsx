@@ -1,7 +1,6 @@
 import CourseList from "@/pages/CourseList";
 import Header from "@/components/Header";
 import Head from "next/head";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export default function Home() {
   return (
@@ -13,7 +12,6 @@ export default function Home() {
       </Head>
       <main className="h-screen">
         <Header />
-        <LanguageSwitcher />
         <div className="flex justify-center align-center">
           <CourseList />
         </div>
