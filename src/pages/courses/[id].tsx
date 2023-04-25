@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Link from "next/link";
 import { translate } from "@/../utils/translate";
 import { ArrowLeftIcon, OpenInNewWindowIcon } from "@radix-ui/react-icons";
+import Image from "next/image";
 
 function CourseDetails() {
   const router = useRouter();
@@ -23,7 +24,7 @@ function CourseDetails() {
     <>
       <Header />
       <div>
-        <div className="pt-4 pl-4 md:pl-8 md:pt-8 w-1/12 cursor-pointer">
+        <div className="pt-4 pl-4 md:pl-8 md:pt-8 w-1/12 cursor-pointer hover:text-slate-600">
           <Link href="/">
             {" "}
             <ArrowLeftIcon width={25} height={25} />
@@ -33,8 +34,13 @@ function CourseDetails() {
           <div className="text-left text-2xl font-bold m-8">
             {course ? <h1>{course.title}</h1> : <h1>Course not found</h1>}
           </div>
-          <div className="">
-            {/*<Image src={course ? `/pdf/${course.imgUrl}` : ""} alt={'course image'} width={300} height={100}/>*/}
+          <div className="mb-8">
+            <Image
+              src={course ? `/img/${course.imgUrl}` : ""}
+              alt={course ? `${course.title}` : ""}
+              width={300}
+              height={100}
+            />
           </div>
         </div>
         <div className="flex flex-row items-center justify-center">
