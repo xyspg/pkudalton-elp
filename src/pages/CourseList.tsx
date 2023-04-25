@@ -52,7 +52,7 @@ const CourseList = () => {
   }, [selectedCategory, categories, list, locale]);
 
   useEffect(() => {
-  setFilteredCourses(null);
+  setSelectedCategory(null);
 },[locale]);
 
   return (
