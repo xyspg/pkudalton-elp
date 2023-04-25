@@ -11,7 +11,9 @@ const ToggleDarkModeButton = () => {
   return (
     <div
       onClick={() => (theme == "dark" ? setTheme("light") : setTheme("dark"))}
-      className={`text-${darkMode ? "white" : "black"} cursor-pointer transition-all duration-100 px-2 md:px-4 py-2 text-2xl md:text-2xl rounded-lg absolute top-4 right-4`}
+      className={`text-${
+        darkMode ? "white" : "black"
+      } cursor-pointer transition-all duration-100 px-2 md:px-4 py-2 text-2xl md:text-2xl rounded-lg `}
     >
       <Half2Icon />
     </div>

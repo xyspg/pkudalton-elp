@@ -1,4 +1,5 @@
-import { list } from "@/data/list";
+import { list as enList } from "@/data/en/list";
+import { list as zhList } from "@/data/zh/list";
 import Link from "next/link";
 import { Key, useEffect, useState } from "react";
 import {
@@ -8,50 +9,56 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/Select";
+import { useRouter } from "next/router";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
+const getCategories = (courseList) => {
+  const categoryObj = {};
+  courseList.forEach((course) => {
+    if (categoryObj[course.category]) {
+      categoryObj[course.category].push(course);
+    } else {
+      categoryObj[course.category] = [course];
+    }
+  });
+  return categoryObj;
+};
+
 const CourseList = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [filteredCourses, setFilteredCourses] = useState([]);
+  const router = useRouter();
+  const { locale } = router;
+  const list = locale === "zh" ? zhList : enList;
+
+  const [categories, setCategories] = useState({});
 
   useEffect(() => {
-    const categoryObj = {};
-    list.forEach((course) => {
-      if (categoryObj[course.category]) {
-        categoryObj[course.category].push(course);
-      } else {
-        categoryObj[course.category] = [course];
-      }
-    });
+    setCategories(getCategories(list));
+  }, [locale]);
 
+  useEffect(() => {
     if (selectedCategory) {
-      setFilteredCourses(categoryObj[selectedCategory]);
+      setFilteredCourses(categories[selectedCategory]);
     } else {
       setFilteredCourses(list);
     }
-  }, [selectedCategory]);
+  }, [selectedCategory, categories]);
 
-  let [categories] = useState(() => {
-    const categoryObj = {};
-    list.forEach((course) => {
-      if (categoryObj[course.category]) {
-        categoryObj[course.category].push(course);
-      } else {
-        categoryObj[course.category] = [course];
-      }
-    });
-    return categoryObj;
-  });
-  console.log(filteredCourses);
+  const selectText = locale === "zh" ? "选择课程类型" : "Select Category";
+  const selectTextPlaceholder = locale === "zh" ? "全部课程" : "All Courses";
+  const day = locale === "zh" ? "天" : "days";
+  const cost = locale === "zh" ? "元" : "RMB";
+
   return (
     <>
-      <div className="h-full w-full max-w-md px-4 py-16 sm:px-0 shadow-sm ">
+      <div className="h-full w-full max-w-md px-4 py-8 sm:px-0 shadow-sm ">
         <div className="ml-2 mb-4">
           <p className="text-slate-800 text-xs mb-1 dark:text-white">
-            选择课程类别
+            {selectText}
           </p>
           <Select
             onValueChange={(value) => {
@@ -59,14 +66,14 @@ const CourseList = () => {
             }}
           >
             <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="全部课程" />
+              <SelectValue placeholder={selectTextPlaceholder} />
             </SelectTrigger>
             <SelectContent>
               <SelectItem
                 value={null}
                 onSelect={() => setSelectedCategory(null)}
               >
-                全部课程
+                {selectTextPlaceholder}
               </SelectItem>
               {Object.keys(categories).map((category) => (
                 <SelectItem
@@ -98,9 +105,13 @@ const CourseList = () => {
                 </h3>
 
                 <ul className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500 dark:text-gray-100">
-                  <li>{post.duration} 天</li>
+                  <li>
+                    {post.duration} {day}
+                  </li>
                   <li>&middot;</li>
-                  <li>{post.cost} 元</li>
+                  <li>
+                    {post.cost} {cost}
+                  </li>
                   <li>&middot;</li>
                   <li>{post.category}</li>
                 </ul>
