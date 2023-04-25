@@ -5,7 +5,8 @@ export const list = [
         title: '中国科学院大学实验探究 —— 计算光学成像',
         duration: '3',
         cost: '3000',
-        pdfUrl: '中国科学院大学实验探究--计算光学成像'
+        pdfUrl: '中国科学院大学实验探究--计算光学成像',
+        imgUrl: '光学成像_img.png'
     },
     {
         id: 2,
