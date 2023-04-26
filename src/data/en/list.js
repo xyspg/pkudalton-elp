@@ -7,7 +7,7 @@ export const list = [
     cost: "6500",
     accommodation:"4",
     location: "Beijing",
-    pdfUrl: "1.中国科学院大学实验探究--计算光学成像",
+    pdfUrl: "1.中国科学院大学实验探究--计算光学成像.pdf",
     imgUrl: "中国科学院大学实验探究 —— 计算光学成像.png",
   },
   {

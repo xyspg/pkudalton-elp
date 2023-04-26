@@ -15,5 +15,9 @@
     "day": "天",
     "cost": "¥",
     "accommodation": "住宿{accday}晚"
+  },
+  "Footer": {
+    "darkMode": "切换至夜间模式",
+    "lightMode": "切换至日间模式"
   }
 }

@@ -15,5 +15,9 @@
     "day": "Days",
     "cost": "CNY",
     "accommodation": "{accday} days of accommodation"
+  },
+  "Footer": {
+    "darkMode": "Toggle Dark Mode",
+    "lightMode": "Toggle Light Mode"
   }
 }

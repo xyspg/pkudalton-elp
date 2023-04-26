@@ -2,6 +2,7 @@ import CourseList from "@/pages/CourseList";
 import Header from "@/components/Header";
 import Head from "next/head";
 import { useTranslations } from "next-intl";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const t = useTranslations("Head");
@@ -20,6 +21,8 @@ export default function Home() {
         <div className="flex justify-center align-center">
           <CourseList />
         </div>
+          <Footer />
+
       </main>
     </>
   );
