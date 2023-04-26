@@ -40,7 +40,7 @@ export const list = [
     cost: "5500-5700",
     location: "北京",
     pdfUrl:
-        "4.北京青年报·【青年纪实】深度新闻采编报道.pdf",
+        "北京青年报.pdf",
     imgUrl: "北京青年报·【青年纪实】深度新闻采编报道.png"
   },
   {
@@ -74,7 +74,7 @@ export const list = [
     cost: "5000-5200",
     location: "北京",
     pdfUrl:
-        "7.北京怡宁医院·临床心理咨询和精神疾病实训.pdf",
+        "医院.pdf",
     imgUrl: "北京怡宁医院·临床心理咨询和精神疾病实训.png"
   },
   {
@@ -85,7 +85,7 @@ export const list = [
     cost: "5500-5700",
     location: "北京",
     pdfUrl:
-        "8.阿尔茨海默症探究和失智老人临床疗愈实训.pdf",
+        "阿兹海默.pdf",
     imgUrl: "阿尔茨海默症探究和失智老人临床疗愈实训.png"
   },
   {
