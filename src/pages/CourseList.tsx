@@ -118,7 +118,7 @@ const CourseList = () => {
                   </li>
                   <li>&middot;</li>
                   <li>
-                    {post.cost} {t("cost")}
+                    {post.cost}{t("cost")}
                   </li>
                   {post.accommodation && (
                       <>
