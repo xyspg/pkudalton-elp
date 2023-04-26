@@ -121,9 +121,12 @@ const CourseList = () => {
                     {post.cost} {t("cost")}
                   </li>
                   {post.accommodation && (
-                    <li>
+                      <>
+                      <li>&middot;</li>
+                      <li>
                       {t("accommodation", {accday: post.accommodation})}
                     </li>
+                      </>
                   )}
                 </ul>
                 <Link
