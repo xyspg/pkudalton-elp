@@ -1,10 +1,21 @@
-import { PrismaClient } from "@prisma/client";
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextApiRequest, NextApiResponse } from 'next';
+import { list as enList } from '@/data/en/list';
+import { list as zhList } from '@/data/zh/list';
+import { list as jaList } from '@/data/ja/list';
 
-const prisma = new PrismaClient();
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+  const { locale } = req.query;
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse){
-  if(req.method!=="GET") return res.status(405).end();
-  const courses = await prisma.course.findMany();
-  res.status(200).json(courses);
-}
+  let list;
+  if (locale === 'zh') {
+    list = zhList;
+  } else if (locale === 'ja') {
+    list = jaList;
+  } else {
+    list = enList;
+  }
+
+  res.status(200).json({ list });
+};
+
+export default handler;

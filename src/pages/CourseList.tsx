@@ -12,7 +12,14 @@ import {
 } from "@/components/ui/Select";
 import { useRouter } from "next/router";
 import { useTranslations } from "next-intl";
-
+import useSWR from "swr";
+const fetcher = async (url: string) => {
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error('Failed to fetch data');
+  }
+  return res.json();
+};
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -32,10 +39,11 @@ const getCategories = (courseList) => {
 const CourseList = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [filteredCourses, setFilteredCourses] = useState([]);
-  const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const { locale } = router;
-  const list = locale === "zh" ? zhList : locale === "ja" ? jaList : enList;
+
+  const { data, error } = useSWR(`/api/courses?locale=${locale}`, fetcher);
+  const list = data?.list || [];
   const t = useTranslations("CourseList");
 
   const [categories, setCategories] = useState({});
@@ -55,7 +63,13 @@ const CourseList = () => {
   useEffect(() => {
     setSelectedCategory(null);
   }, [locale]);
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
+  if (!data) {
+    return <div className='mt-4'>Loading...</div>;
+  }
   return (
     <>
       <div className="h-full w-full max-w-md px-4 py-8 sm:px-0 shadow-sm">
