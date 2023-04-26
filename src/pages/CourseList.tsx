@@ -68,9 +68,15 @@ const CourseList = () => {
               setSelectedCategory(value);
             }}
           >
-            <SelectTrigger className="w-[250px]">
+            <SelectTrigger
+                className="w-[250px]"
+                onClick={(event) => {
+                  event.stopPropagation();
+                }}
+            >
               <SelectValue placeholder={t("selectTextPlaceholder")} />
             </SelectTrigger>
+
             <SelectContent>
               <SelectItem
                 value={null}

@@ -7,6 +7,7 @@ import Link from "next/link";
 import { ArrowLeftIcon, OpenInNewWindowIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import Footer from "@/components/Footer";
 
 function CourseDetails() {
   const router = useRouter();
@@ -22,7 +23,7 @@ function CourseDetails() {
   return (
     <>
       <Header />
-      <div>
+      <div className='mb-4'>
         <div className="pt-4 pl-4 md:pl-8 md:pt-8 w-1/12 cursor-pointer hover:text-slate-600">
           <Link href="/">
             {" "}
@@ -60,6 +61,7 @@ function CourseDetails() {
           </Link>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
