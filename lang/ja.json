@@ -13,6 +13,11 @@
     "selectText": "プロジェクトタイプを選択",
     "selectTextPlaceholder": "すべてのプロジェクト",
     "day": "日",
-    "cost": "人民元"
+    "cost": "人民元",
+    "accommodation": "{accday} 泊する"
+  },
+  "Footer": {
+    "darkMode": "ナイトモードに切り替える",
+    "lightMode": "デイモードに切り替え"
   }
 }

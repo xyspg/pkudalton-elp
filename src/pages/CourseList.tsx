@@ -32,6 +32,7 @@ const getCategories = (courseList) => {
 const CourseList = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [filteredCourses, setFilteredCourses] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const { locale } = router;
   const list = locale === "zh" ? zhList : locale === "ja" ? jaList : enList;
