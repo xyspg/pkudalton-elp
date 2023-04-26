@@ -13,6 +13,7 @@
     "selectText": "Select Category",
     "selectTextPlaceholder": "All Programs",
     "day": "Days",
-    "cost": "CNY"
+    "cost": "CNY",
+    "accommodation": "ACCOM {accday}🌙 "
   }
 }

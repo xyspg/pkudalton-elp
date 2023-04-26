@@ -34,7 +34,7 @@ function CourseDetails() {
           </div>
           <div className="mb-8">
             <Image
-              src={course ? `/img/${course.imgUrl}` : ""}
+              src={course ? `/img/${course.id}.png` : ""}
               alt={course ? `${course.title}` : ""}
               width={300}
               height={100}

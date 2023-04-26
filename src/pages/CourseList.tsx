@@ -2,7 +2,7 @@ import { list as enList } from "@/data/en/list";
 import { list as zhList } from "@/data/zh/list";
 import { list as jaList } from "@/data/ja/list";
 import Link from "next/link";
-import { Key, useEffect, useRef, useState } from "react";
+import { Key, useEffect, useState } from "react";
 import {
   Select,
   SelectContent,
@@ -52,12 +52,12 @@ const CourseList = () => {
   }, [selectedCategory, categories, list, locale]);
 
   useEffect(() => {
-  setSelectedCategory(null);
-},[locale]);
+    setSelectedCategory(null);
+  }, [locale]);
 
   return (
     <>
-      <div className="h-full w-full max-w-md px-4 py-8 sm:px-0 shadow-sm ">
+      <div className="h-full w-full max-w-md px-4 py-8 sm:px-0 shadow-sm">
         <div className="ml-2 mb-4">
           <p className="text-slate-800 text-xs mb-1 dark:text-white">
             {t("selectText")}
@@ -98,6 +98,7 @@ const CourseList = () => {
               duration: number;
               cost: number;
               location: string;
+              accommodation: number | null;
             }) => (
               <li
                 key={post.id}
@@ -108,6 +109,10 @@ const CourseList = () => {
                 </h3>
 
                 <ul className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500 dark:text-gray-100">
+                  <li>{post.category}</li>
+                  <li>&middot;</li>
+                  <li>{post.location}</li>
+                  <li>&middot;</li>
                   <li>
                     {post.duration} {t("day")}
                   </li>
@@ -115,8 +120,14 @@ const CourseList = () => {
                   <li>
                     {post.cost} {t("cost")}
                   </li>
-                  {/*<li>&middot;</li>*/}
-                  {/*<li>{post.location}</li>*/}
+                  {post.accommodation && (
+                      <>
+                      <li>&middot;</li>
+                    <li>
+                      {t("accommodation", { accday: post.accommodation })}
+                    </li>
+                      </>
+                  )}
                 </ul>
                 <Link
                   href={`/courses/${post.id}`}

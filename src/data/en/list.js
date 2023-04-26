@@ -1,46 +1,125 @@
 export const list = [
   {
     id: 1,
-    category: "Science Exploration",
-    title:
-      "China Academy of Science University Experiment Exploration -- Computational Optical Imaging",
-    duration: "3",
-    cost: "3000",
-    pdfUrl: "中国科学院大学实验探究--计算光学成像",
-    imgUrl: "光学成像_img.png",
+    category: "Scientific Research",
+    title: "University of Chinese Academy of Sciences Experimental Exploration - Computational Optical Imaging",
+    duration: "5",
+    cost: "6500",
+    accommodation:"4",
+    location: "Beijing",
+    pdfUrl: "1.中国科学院大学实验探究--计算光学成像",
+    imgUrl: "中国科学院大学实验探究 —— 计算光学成像.png",
   },
   {
     id: 2,
-    category: "Science Exploration",
-    title:
-      "Preparation and immunological efficacy analysis of pneumococcal polysaccharide conjugate vaccine",
+    category: "Scientific Research",
+    title: "Characterization and Pathological Analysis of Mouse Models of Neurodegenerative Diseases",
     duration: "5",
     cost: "5000",
+    location: "Beijing",
     pdfUrl:
-      "北大附中-疫苗2-肺炎多糖结合疫苗的制备和免疫效价分析-过程工程所0625",
+        "2.神经退行性疾病小鼠模型的表征和病理分析",
+    imgUrl: "神经退行性疾病小鼠模型的表征和病理分析.png"
   },
   {
     id: 3,
-    category: "Art Media",
-    title: "Disability Children Assistance Social Enterprise Incubation KERU",
-    duration: "3",
-    cost: "3000",
-    pdfUrl: "北大附中国际部研学企划.pptx(1)",
+    category: "Scientific Research",
+    title: "Preparation and Immunogenicity Analysis of Pneumococcal Polysaccharide Conjugate Vaccines",
+    duration: "5",
+    cost: "5000",
+    location: "Beijing",
+    pdfUrl:
+        "3.肺炎多糖结合疫苗的制备和免疫效价分析",
+    imgUrl: "肺炎多糖结合疫苗的制备和免疫效价分析.png"
   },
   {
     id: 4,
-    category: "Art Media",
-    title: "Ethnic Culture Business Plan Gypsophila",
-    duration: "3",
-    cost: "3000",
-    pdfUrl: "【2022】创星计划——满天星民族文化创意开发与跨界联名研学营",
+    category: "Arts and Media",
+    title: "Beijing Youth Daily - In-Depth News Reporting and Editing for Youth Documentary",
+    duration: "5",
+    cost: "5500-5700",
+    location: "Beijing",
+    pdfUrl:
+        "4.北京青年报·【青年纪实】深度新闻采编报道",
+    imgUrl: "北京青年报·【青年纪实】深度新闻采编报道.png"
   },
   {
     id: 5,
-    category: "Social Science Economics",
-    title: "Finance Beijing Youth Daily Psychology Qinglin",
-    duration: "3",
-    cost: "3000",
-    pdfUrl: "金融商科集团实训",
+    category: "Arts and Media",
+    title: "Art and Curatorial Camp Project",
+    duration: "5",
+    cost: "5780",
+    location: "Beijing",
+    pdfUrl:
+        "5.艺术与策展营地项目",
+    imgUrl: "艺术与策展营地项目.png"
+  },
+  {
+    id: 6,
+    category: "Arts and Media",
+    title: "Aba, Western Sichuan - Visual Promotion Theme",
+    duration: "7",
+    cost: "7600",
+    location: "Sichuan",
+    accommodation: "6",
+    pdfUrl:
+        "6.川西阿坝·影像宣传主题",
+    imgUrl: "川西阿坝·影像宣传主题.png"
+  },
+  {
+    id: 7,
+    category: "Social Sciences and Economics",
+    title: "Beijing Yining Hospital - Clinical Psychological Counseling and Mental Illness Training",
+    duration: "5",
+    cost: "5000-5200",
+    location: "Beijing",
+    pdfUrl:
+        "7.北京怡宁医院·临床心理咨询和精神疾病实训",
+    imgUrl: "北京怡宁医院·临床心理咨询和精神疾病实训.png"
+  },
+  {
+    id: 8,
+    category: "Social Sciences and Economics",
+    title: "Alzheimer's Disease Exploration and Clinical Healing Training for Dementia Patients",
+    duration: "5",
+    cost: "5500-5700",
+    location: "Beijing",
+    pdfUrl:
+        "8.阿尔茨海默症探究和失智老人临床疗愈实训",
+    imgUrl: "阿尔茨海默症探究和失智老人临床疗愈实训.png"
+  },
+  {
+    id: 9,
+    category: "Social Sciences and Economics",
+    title: "Yixian, Huangshan - Public Welfare Marketing Theme",
+    duration: "7",
+    accommodation: "6",
+    cost: "7500",
+    location: "Huangshan",
+    pdfUrl:
+        "9.黄山黟县·公益营销主题",
+    imgUrl: "黄山黟县·公益营销主题.png"
+  },
+  {
+    id: 10,
+    category: "Ecological Exploration",
+    title: "Gannan Tibetan Area - Nomadic Culture and Grassland Conservation",
+    duration: "8",
+    accommodation: "7",
+    cost: "7900",
+    location: "Gansu",
+    pdfUrl: "10.甘南藏区 - 游牧文化与草原保育",
+    imgUrl: "甘南藏区 - 游牧文化与草原保育.png"
+  },
+  {
+    id: 11,
+    category: "Ecological Exploration",
+    title: "Xinzhuang Eco-Art Community - United Community and Artistic Co-creation",
+    duration: "5",
+    accommodation: "2",
+    cost: "5000-5500",
+    location: "Beijing",
+    pdfUrl: "11.辛庄生态·艺术社区·团结的社区，艺术的共建",
+    imgUrl: "辛庄生态·艺术社区·团结的社区，艺术的共建.png"
   },
 ];

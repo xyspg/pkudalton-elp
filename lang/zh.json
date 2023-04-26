@@ -13,6 +13,7 @@
     "selectText": "选择项目类型",
     "selectTextPlaceholder": "全部项目",
     "day": "天",
-    "cost": "元"
+    "cost": "¥",
+    "accommodation": "住宿 {accday} 晚"
   }
 }
