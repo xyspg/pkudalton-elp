@@ -17,6 +17,7 @@ function CourseDetails() {
     (c) => c.id === parseInt(typeof id === "string" ? id : "")
   );
   const t = useTranslations("CourseDetails");
+  const BASE_URL = "https://elp.xyspg.moe";
 
   return (
     <>
@@ -46,7 +47,7 @@ function CourseDetails() {
           <Link
             rel="noopener noreferrer"
             target="_blank"
-            href={course ? `/pdf/${course.pdfUrl}.pdf` : "#"}
+            href={course ? `${BASE_URL}/pdf/${course.pdfUrl}.pdf` : "#"}
             className="text-xs text-slate-700 dark:text-white ml-2"
           >
             {course ? t("view_pdf") : null}
