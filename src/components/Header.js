@@ -18,7 +18,7 @@ function Header() {
             {t("title")}
           </h1>
           <h2 className="font-sans text-1xl md:pt-2 text-left">
-            Experience Learning Program
+            Experiential Learning Program
           </h2>
         </div>
       </div>

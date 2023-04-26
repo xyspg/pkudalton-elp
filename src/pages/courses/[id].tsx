@@ -12,7 +12,7 @@ function CourseDetails() {
   const router = useRouter();
   const { id } = router.query;
   const { locale } = router;
-  const list = locale === "zh" ? zhList : locale === 'ja' ? jaList : enList;
+  const list = locale === "zh" ? zhList : locale === "ja" ? jaList : enList;
   const course = list.find(
     (c) => c.id === parseInt(typeof id === "string" ? id : "")
   );
@@ -47,7 +47,13 @@ function CourseDetails() {
           <Link
             rel="noopener noreferrer"
             target="_blank"
-            href={course ? `${BASE_URL}/pdf/${course.pdfUrl}.pdf` : "#"}
+            href={
+              course
+                ? process.env.NODE_ENV === "production"
+                  ? `${BASE_URL}/pdf/${course.pdfUrl}`
+                  : `http://localhost:3000/pdf/${course.pdfUrl}`
+                : "#"
+            }
             className="text-xs text-slate-700 dark:text-white ml-2"
           >
             {course ? t("view_pdf") : null}

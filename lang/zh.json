@@ -14,6 +14,6 @@
     "selectTextPlaceholder": "全部项目",
     "day": "天",
     "cost": "¥",
-    "accommodation": "住宿 {accday} 晚"
+    "accommodation": "住宿{accday}晚"
   }
 }

@@ -108,7 +108,7 @@ const CourseList = () => {
                   {post.title}
                 </h3>
 
-                <ul className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500 dark:text-gray-100">
+                <ul className="mt-1 flex flex-wrap space-x-1 text-xs font-normal leading-4 text-gray-500 dark:text-gray-100">
                   <li>{post.category}</li>
                   <li>&middot;</li>
                   <li>{post.location}</li>
@@ -121,12 +121,9 @@ const CourseList = () => {
                     {post.cost} {t("cost")}
                   </li>
                   {post.accommodation && (
-                      <>
-                      <li>&middot;</li>
                     <li>
-                      {t("accommodation", { accday: post.accommodation })}
+                      {t("accommodation", {accday: post.accommodation})}
                     </li>
-                      </>
                   )}
                 </ul>
                 <Link

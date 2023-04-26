@@ -7,7 +7,7 @@ export const list = [
     cost: "6500",
     accommodation:"4",
     location: "北京",
-    pdfUrl: "1.中国科学院大学实验探究--计算光学成像",
+    pdfUrl: "1.中国科学院大学实验探究--计算光学成像.pdf",
     imgUrl: "中国科学院大学实验探究 —— 计算光学成像.png",
   },
   {
@@ -18,7 +18,7 @@ export const list = [
     cost: "5000",
     location: "北京",
     pdfUrl:
-      "2.神经退行性疾病小鼠模型的表征和病理分析",
+      "2.神经退行性疾病小鼠模型的表征和病理分析.pdf",
     imgUrl: "神经退行性疾病小鼠模型的表征和病理分析.png"
   },
   {
@@ -29,7 +29,7 @@ export const list = [
     cost: "5000",
     location: "北京",
     pdfUrl:
-        "3.肺炎多糖结合疫苗的制备和免疫效价分析",
+        "3.肺炎多糖结合疫苗的制备和免疫效价分析.pdf",
     imgUrl: "肺炎多糖结合疫苗的制备和免疫效价分析.png"
   },
   {
@@ -40,7 +40,7 @@ export const list = [
     cost: "5500-5700",
     location: "北京",
     pdfUrl:
-        "4.北京青年报·【青年纪实】深度新闻采编报道",
+        "4.北京青年报·【青年纪实】深度新闻采编报道.pdf",
     imgUrl: "北京青年报·【青年纪实】深度新闻采编报道.png"
   },
   {
@@ -51,7 +51,7 @@ export const list = [
     cost: "5780",
     location: "北京",
     pdfUrl:
-        "5.艺术与策展营地项目",
+        "5.艺术与策展营地项目.pdf",
     imgUrl: "艺术与策展营地项目.png"
   },
   {
@@ -63,7 +63,7 @@ export const list = [
     location: "四川",
     accommodation: "6",
     pdfUrl:
-        "6.川西阿坝·影像宣传主题",
+        "6.川西阿坝·影像宣传主题.pdf",
     imgUrl: "川西阿坝·影像宣传主题.png"
   },
   {
@@ -74,7 +74,7 @@ export const list = [
     cost: "5000-5200",
     location: "北京",
     pdfUrl:
-        "7.北京怡宁医院·临床心理咨询和精神疾病实训",
+        "7.北京怡宁医院·临床心理咨询和精神疾病实训.pdf",
     imgUrl: "北京怡宁医院·临床心理咨询和精神疾病实训.png"
   },
   {
@@ -85,7 +85,7 @@ export const list = [
     cost: "5500-5700",
     location: "北京",
     pdfUrl:
-        "8.阿尔茨海默症探究和失智老人临床疗愈实训",
+        "8.阿尔茨海默症探究和失智老人临床疗愈实训.pdf",
     imgUrl: "阿尔茨海默症探究和失智老人临床疗愈实训.png"
   },
   {
@@ -97,7 +97,7 @@ export const list = [
     cost: "7500",
     location: "黄山",
     pdfUrl:
-        "9.黄山黟县·公益营销主题",
+        "9.黄山黟县·公益营销主题.pdf",
     imgUrl: "黄山黟县·公益营销主题.png"
   },
   {
@@ -108,7 +108,7 @@ export const list = [
     accommodation: "7",
     cost: "7900",
     location: "甘肃",
-    pdfUrl: "10.甘南藏区 - 游牧文化与草原保育",
+    pdfUrl: "10.甘南藏区 - 游牧文化与草原保育.pdf",
     imgUrl: "甘南藏区 - 游牧文化与草原保育.png"
   },
   {
@@ -119,7 +119,7 @@ export const list = [
     accommodation: "2",
     cost: "5000-5500",
     location: "北京",
-    pdfUrl: "11.辛庄生态·艺术社区·团结的社区，艺术的共建",
+    pdfUrl: "11.辛庄生态·艺术社区·团结的社区，艺术的共建.pdf",
     imgUrl: "辛庄生态·艺术社区·团结的社区，艺术的共建.png"
   },
 ];
