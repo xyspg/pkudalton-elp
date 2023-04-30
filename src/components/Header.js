@@ -8,7 +8,7 @@ function Header() {
     <>
       <div
         className="h-48 md:h-52 bg-slate-300 bg-cover
-    flex flex-col justify-center text-black dark:bg-slate-700 relative "
+    flex flex-col justify-center text-black dark:bg-slate-700 relative rounded-2xl m-2 "
       >
         <div className="absolute top-8 right-8">
           <LanguageSwitcher />
@@ -22,7 +22,6 @@ function Header() {
           </h2>
         </div>
       </div>
-      <hr className="border-slate-400 " />
     </>
   );
 }

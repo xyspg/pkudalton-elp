@@ -72,7 +72,7 @@ const CourseList = () => {
   }
   return (
     <>
-      <div className="h-full w-full max-w-md px-4 py-8 sm:px-0 shadow-sm">
+      <div className="h-full w-full max-w-md px-4 py-8 sm:px-0 m-2">
         <div className="ml-2 mb-4">
           <p className="text-slate-800 text-xs mb-1 dark:text-white">
             {t("selectText")}
@@ -104,7 +104,9 @@ const CourseList = () => {
             </SelectContent>
           </Select>
         </div>
-        <ul>
+        <ul
+        className='flex flex-col space-y-1 overflow-y-scroll h-full'
+        >
           {filteredCourses.map(
             (post: {
               category: string;
@@ -115,6 +117,7 @@ const CourseList = () => {
               location: string;
               accommodation: number | null;
             }) => (
+                <>
               <li
                 key={post.id}
                 className="relative rounded-md p-3 hover:bg-gray-100 dark:hover:bg-gray-600"
@@ -123,7 +126,7 @@ const CourseList = () => {
                   {post.title}
                 </h3>
 
-                <ul className="mt-1 flex flex-wrap space-x-1 text-xs font-normal leading-4 text-gray-500 dark:text-gray-100">
+                <ul className="mt-1 flex flex-wrap space-x-1 text-xs font-normal leading-4 text-gray-500 dark:text-gray-100 ">
                   <li>{post.category}</li>
                   <li>&middot;</li>
                   <li>{post.location}</li>
@@ -152,6 +155,10 @@ const CourseList = () => {
                   )}
                 ></Link>
               </li>
+                  <hr
+                  className='mx-2 border-slate-200 dark:border-slate-700'
+                  />
+                </>
             )
           )}
         </ul>
