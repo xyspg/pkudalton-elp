@@ -17,7 +17,7 @@ function CourseDetails() {
     (c) => c.id === parseInt(typeof id === "string" ? id : "")
   );
   const t = useTranslations("CourseDetails");
-  const BASE_URL = "https://elp.xyspg.moe";
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 
   return (
     <>
@@ -35,7 +35,9 @@ function CourseDetails() {
           </div>
           <div className="mb-8">
             <Image
-              src={course ? `/img/${course.id}.png` : ""}
+              src={course
+                  ? `${supabaseUrl}/storage/v1/object/public/course_detail/img/${course.id}.png`
+                  : ""}
               alt={course ? `${course.title}` : ""}
               width={300}
               height={100}
@@ -49,9 +51,7 @@ function CourseDetails() {
             target="_blank"
             href={
               course
-                ? process.env.NODE_ENV === "production"
-                  ? `${BASE_URL}/pdf/${course.pdfUrl}`
-                  : `http://localhost:3000/pdf/${course.pdfUrl}`
+                ? `${supabaseUrl}/storage/v1/object/public/course_detail/pdf/${course.id}.pdf`
                 : "#"
             }
             className="text-xs text-slate-700 dark:text-white ml-2"

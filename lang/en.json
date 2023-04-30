@@ -14,7 +14,8 @@
     "selectTextPlaceholder": "All Programs",
     "day": "Days",
     "cost": "CNY",
-    "accommodation": "{accday} days of accommodation"
+    "accommodation": "{accday} days of accommodation",
+    "error": "Error: {errorText}, please refresh the page and try again."
   },
   "Footer": {
     "darkMode": "Toggle Dark Mode",

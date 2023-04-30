@@ -41,12 +41,12 @@ const CourseList = () => {
   const { locale } = router;
 
   const { data, error } = useSWR(
-      `/api/courses?locale=${locale}&category=${selectedCategory || ""}`,
-      fetcher
+    `/api/courses?locale=${locale}&category=${selectedCategory || ""}`,
+    fetcher
   );
   const { data: categoryData, error: categoryError } = useSWR(
-      `/api/category?locale=${locale}`,
-      fetcher
+    `/api/category?locale=${locale}`,
+    fetcher
   );
 
   const categoryList = categoryData?.list || [];
@@ -65,7 +65,11 @@ const CourseList = () => {
   }, [locale]);
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return (
+      <div className="text-red-500 text-sm m-4">
+        {t("error", { errorText: error.message })}
+      </div>
+    );
   }
 
   return (
@@ -81,7 +85,9 @@ const CourseList = () => {
             }}
           >
             <SelectTrigger className="w-[250px]">
-              <SelectValue placeholder={selectedCategory || t("selectTextPlaceholder")} />
+              <SelectValue
+                placeholder={selectedCategory || t("selectTextPlaceholder")}
+              />
             </SelectTrigger>
             <SelectContent>
               <SelectItem
@@ -102,8 +108,12 @@ const CourseList = () => {
             </SelectContent>
           </Select>
         </div>
-        <ul className="flex flex-col space-y-1 overflow-y-scroll h-full">
-          {!data && (<div className='m-4 text-slate-700 text-sm text-center'>Loading...</div>)}
+        <ul className="flex flex-col space-y-1 h-full">
+          {!data && (
+            <div className="m-4 text-slate-700 text-sm text-center">
+              Loading...
+            </div>
+          )}
           {list.map(
             (post: {
               category: string;
@@ -161,7 +171,7 @@ const CourseList = () => {
                     href={`/courses/${post.id}`}
                     className={classNames(
                       "absolute inset-0 rounded-md",
-                      "ring-blue-400 focus:z-10 focus:outline-none focus:ring-2"
+                      "ring-slate-400 focus:z-10 focus:outline-none focus:ring-2"
                     )}
                   ></Link>
                 </li>
