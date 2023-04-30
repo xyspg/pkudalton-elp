@@ -1,6 +1,3 @@
-import { list as enList } from "@/data/en/list";
-import { list as zhList } from "@/data/zh/list";
-import { list as jaList } from "@/data/ja/list";
 import Link from "next/link";
 import { Key, useEffect, useState } from "react";
 import {
@@ -13,13 +10,15 @@ import {
 import { useRouter } from "next/router";
 import { useTranslations } from "next-intl";
 import useSWR from "swr";
+
 const fetcher = async (url: string) => {
   const res = await fetch(url);
   if (!res.ok) {
-    throw new Error('Failed to fetch data');
+    throw new Error("Failed to fetch data");
   }
   return res.json();
 };
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -38,11 +37,20 @@ const getCategories = (courseList) => {
 
 const CourseList = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [filteredCourses, setFilteredCourses] = useState([]);
   const router = useRouter();
   const { locale } = router;
 
-  const { data, error } = useSWR(`/api/courses?locale=${locale}`, fetcher);
+  const { data, error } = useSWR(
+      `/api/courses?locale=${locale}&category=${selectedCategory || ""}`,
+      fetcher
+  );
+  const { data: categoryData, error: categoryError } = useSWR(
+      `/api/category?locale=${locale}`,
+      fetcher
+  );
+
+  const categoryList = categoryData?.list || [];
+
   const list = data?.list || [];
   const t = useTranslations("CourseList");
 
@@ -53,23 +61,13 @@ const CourseList = () => {
   }, [list, locale]);
 
   useEffect(() => {
-    if (selectedCategory) {
-      setFilteredCourses(categories[selectedCategory]);
-    } else {
-      setFilteredCourses(list);
-    }
-  }, [selectedCategory, categories, list, locale]);
-
-  useEffect(() => {
     setSelectedCategory(null);
   }, [locale]);
+
   if (error) {
     return <div>Error: {error.message}</div>;
   }
 
-  if (!data) {
-    return <div className='mt-4'>Loading...</div>;
-  }
   return (
     <>
       <div className="h-full w-full max-w-md px-4 py-8 sm:px-0 m-2">
@@ -83,7 +81,7 @@ const CourseList = () => {
             }}
           >
             <SelectTrigger className="w-[250px]">
-              <SelectValue placeholder={t("selectTextPlaceholder")} />
+              <SelectValue placeholder={selectedCategory || t("selectTextPlaceholder")} />
             </SelectTrigger>
             <SelectContent>
               <SelectItem
@@ -92,73 +90,83 @@ const CourseList = () => {
               >
                 {t("selectTextPlaceholder")}
               </SelectItem>
-              {Object.keys(categories).map((category) => (
+              {categoryList.map((category) => (
                 <SelectItem
-                  key={category}
-                  value={category}
-                  onSelect={() => setSelectedCategory(category)}
+                  key={category.category}
+                  value={category.category}
+                  onSelect={() => setSelectedCategory(category.category)}
                 >
-                  {category}
+                  {category.category}
                 </SelectItem>
               ))}
             </SelectContent>
           </Select>
         </div>
-        <ul
-        className='flex flex-col space-y-1 overflow-y-scroll h-full'
-        >
-          {filteredCourses.map(
+        <ul className="flex flex-col space-y-1 overflow-y-scroll h-full">
+          {!data && (<div className='m-4 text-slate-700 text-sm text-center'>Loading...</div>)}
+          {list.map(
             (post: {
               category: string;
               id: Key;
               title: string;
               duration: number;
-              cost: number;
+              lower_cost: number;
+              upper_cost: number;
               location: string;
               accommodation: number | null;
             }) => (
-                <>
-              <li
-                key={post.id}
-                className="relative rounded-md p-3 hover:bg-gray-100 dark:hover:bg-gray-600"
-              >
-                <h3 className="text-sm font-medium leading-5 dark:text-white">
-                  {post.title}
-                </h3>
+              <>
+                <li
+                  key={post.id}
+                  className="relative rounded-md p-3 hover:bg-gray-100 dark:hover:bg-gray-600"
+                >
+                  <h3 className="text-sm font-medium leading-5 dark:text-white">
+                    {post.title}
+                  </h3>
 
-                <ul className="mt-1 flex flex-wrap space-x-1 text-xs font-normal leading-4 text-gray-500 dark:text-gray-100 ">
-                  <li>{post.category}</li>
-                  <li>&middot;</li>
-                  <li>{post.location}</li>
-                  <li>&middot;</li>
-                  <li>
-                    {post.duration} {t("day")}
-                  </li>
-                  <li>&middot;</li>
-                  <li>
-                    {post.cost}{t("cost")}
-                  </li>
-                  {post.accommodation && (
-                      <>
-                      <li>&middot;</li>
-                      <li>
-                      {t("accommodation", {accday: post.accommodation})}
+                  <ul className="mt-1 flex flex-wrap space-x-1 text-xs font-normal leading-4 text-gray-500 dark:text-gray-100 ">
+                    <li>{post.category}</li>
+                    <li>&middot;</li>
+                    <li>{post.location}</li>
+                    <li>&middot;</li>
+                    <li>
+                      {post.duration} {t("day")}
                     </li>
+                    <li>&middot;</li>
+                    <li>
+                      {post.lower_cost === post.upper_cost ? (
+                        <>
+                          {post.lower_cost}
+                          {t("cost")}
+                        </>
+                      ) : (
+                        <>
+                          {post.lower_cost}
+                          <span>-</span>
+                          {post.upper_cost}
+                          {t("cost")}
+                        </>
+                      )}
+                    </li>
+                    {post.accommodation && (
+                      <>
+                        <li>&middot;</li>
+                        <li>
+                          {t("accommodation", { accday: post.accommodation })}
+                        </li>
                       </>
-                  )}
-                </ul>
-                <Link
-                  href={`/courses/${post.id}`}
-                  className={classNames(
-                    "absolute inset-0 rounded-md",
-                    "ring-blue-400 focus:z-10 focus:outline-none focus:ring-2"
-                  )}
-                ></Link>
-              </li>
-                  <hr
-                  className='mx-2 border-slate-200 dark:border-slate-700'
-                  />
-                </>
+                    )}
+                  </ul>
+                  <Link
+                    href={`/courses/${post.id}`}
+                    className={classNames(
+                      "absolute inset-0 rounded-md",
+                      "ring-blue-400 focus:z-10 focus:outline-none focus:ring-2"
+                    )}
+                  ></Link>
+                </li>
+                <hr className="mx-2 border-slate-200 dark:border-slate-700" />
+              </>
             )
           )}
         </ul>

@@ -11,15 +11,13 @@ const options = {
 const supabase = createClient(supabaseUrl, supabaseKey, options);
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const { locale, category } = req.query;
+  const { locale } = req.query;
 
   try {
-    let query = supabase.from(`${locale}`).select("*").order("id", { ascending: true });
-
-    if (category) {
-      query = query.eq("category", category);
-    }
-    const { data, error } = await query;
+    const { data, error } = await supabase
+        .from(`categories_${locale}`)
+        .select()
+    ;
 
     if (error) {
       throw error;
