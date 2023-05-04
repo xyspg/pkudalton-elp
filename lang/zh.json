@@ -14,7 +14,8 @@
     "selectTextPlaceholder": "全部项目",
     "day": "天",
     "cost": "¥",
-    "accommodation": "住宿{accday}晚"
+    "accommodation": "住宿{accday}晚",
+    "error": "发生错误: {errorText}, 请刷新页面重试"
   },
   "Footer": {
     "darkMode": "切换至夜间模式",

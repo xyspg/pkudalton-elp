@@ -1,21 +1,35 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import { list as enList } from '@/data/en/list';
-import { list as zhList } from '@/data/zh/list';
-import { list as jaList } from '@/data/ja/list';
+import { NextApiRequest, NextApiResponse } from "next";
+import { createClient } from "@supabase/supabase-js";
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+const options = {
+  db: {
+    schema: "course",
+  },
+};
+const supabase = createClient(supabaseUrl, supabaseKey, options);
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const { locale } = req.query;
+  const { locale, category } = req.query;
 
-  let list;
-  if (locale === 'zh') {
-    list = zhList;
-  } else if (locale === 'ja') {
-    list = jaList;
-  } else {
-    list = enList;
+  try {
+    let query = supabase.from(`${locale}`).select("*").order("id", { ascending: true });
+
+    if (category) {
+      query = query.eq("category", category);
+    }
+    const { data, error } = await query;
+
+    if (error) {
+      throw error;
+    }
+
+    res.status(200).json({ list: data });
+  } catch (error) {
+    console.error("Error fetching courses:", error.message);
+    res.status(500).json({ error: error.message });
   }
-
-  res.status(200).json({ list });
 };
 
 export default handler;
