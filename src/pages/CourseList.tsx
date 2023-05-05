@@ -44,6 +44,7 @@ const CourseList = () => {
     `/api/courses?locale=${locale}&category=${selectedCategory || ""}`,
     fetcher
   );
+
   const { data: categoryData, error: categoryError } = useSWR(
     `/api/category?locale=${locale}`,
     fetcher
@@ -134,7 +135,7 @@ const CourseList = () => {
                     {post.title}
                   </h3>
 
-                  <ul className="mt-1 flex flex-wrap space-x-1 text-xs font-normal leading-4 text-gray-500 dark:text-gray-100 ">
+                  <ul className="mt-1 flex flex-wrap gap-x-1 text-xs font-normal leading-4 text-gray-500 dark:text-gray-100 ">
                     <li>{post.category}</li>
                     <li>&middot;</li>
                     <li>{post.location}</li>
@@ -142,22 +143,27 @@ const CourseList = () => {
                     <li>
                       {post.duration} {t("day")}
                     </li>
-                    <li>&middot;</li>
-                    <li>
-                      {post.lower_cost === post.upper_cost ? (
-                        <>
-                          {post.lower_cost}
-                          {t("cost")}
-                        </>
-                      ) : (
-                        <>
-                          {post.lower_cost}
-                          <span>-</span>
-                          {post.upper_cost}
-                          {t("cost")}
-                        </>
-                      )}
-                    </li>
+
+                    {locale === "zh" && (
+                      <>
+                        <li>&middot;</li>
+                        <li>
+                          {post.lower_cost === post.upper_cost ? (
+                            <>
+                              {post.lower_cost}
+                              {t("cost")}
+                            </>
+                          ) : (
+                            <>
+                              {post.lower_cost}
+                              <span>-</span>
+                              {post.upper_cost}
+                              {t("cost")}
+                            </>
+                          )}
+                        </li>
+                      </>
+                    )}
                     {post.accommodation && (
                       <>
                         <li>&middot;</li>

@@ -1,9 +1,13 @@
 import React from "react";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useTranslations } from "next-intl";
+import {useRouter} from "next/router";
 
 function Header() {
   const t = useTranslations("Header");
+  const router = useRouter();
+  const { locale } = router;
+
   return (
     <>
       <div
@@ -14,10 +18,10 @@ function Header() {
           <LanguageSwitcher />
         </div>
         <div className="px-8 md:px-16 dark:text-white">
-          <h1 className="text-4xl md:text-5xl font-bold text-left ">
+          <h1 className={`text-4xl md:text-5xl font-bold text-left mb-2 ${locale === 'en' ? `title` : null}`}>
             {t("title")}
           </h1>
-          <h2 className="font-sans text-1xl md:pt-2 text-left">
+          <h2 className="text-1xl md:pt-2 text-left">
             Experiential Learning Program
           </h2>
         </div>

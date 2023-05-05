@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const { blackA, mauve, violet, slate } = require('@radix-ui/colors');
+
 module.exports = {
   darkMode: 'class',
   content: [
@@ -12,7 +14,13 @@ module.exports = {
     extend: {
       fontFamily: {
         'noto': ['"Noto Sans Simplified Chinese"']
-      }
+      },
+      colors: {
+        ...blackA,
+        ...mauve,
+        ...violet,
+        ...slate,
+      },
     },
   },
   plugins: [],
