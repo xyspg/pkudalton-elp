@@ -3,6 +3,7 @@ module.exports = {
   i18n: {
     locales: ["en", "zh", "ja"],
     defaultLocale: "zh",
+    localeDetection: false,
   },
   images: {
     remotePatterns: [
@@ -13,5 +14,4 @@ module.exports = {
         pathname: '/**',
       },
     ],
-  },
-};
+  },};

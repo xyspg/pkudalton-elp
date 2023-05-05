@@ -7,14 +7,14 @@
     "description": "Dalton Academy Experiential Learning Program List 2023"
   },
   "CourseDetails": {
-    "view_pdf": "View PDF"
+    "view_pdf": "Download PDF"
   },
   "CourseList": {
     "selectText": "Select Category",
     "selectTextPlaceholder": "All Programs",
     "day": "Days",
     "cost": "CNY",
-    "accommodation": "{accday} days of accommodation",
+    "accommodation": "{accday} Nights of Accommodation",
     "error": "Error: {errorText}, please refresh the page and try again."
   },
   "Footer": {
