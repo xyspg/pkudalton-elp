@@ -45,7 +45,7 @@ function CourseDetails() {
                 width={300}
                 height={100}
               />
-              <div className="hidden md:flex my-8 flex-row items-center justify-center mb-12 bg-slate-100 py-3 px-4 rounded-2xl dark:bg-slate-700 dark:hover:bg-slate-600 hover:bg-slate-200 transition w-32 ">
+              <div className="hidden md:flex my-8 flex-row items-center justify-center mb-12 bg-slate-100 py-3 px-4 rounded-2xl dark:bg-slate-700 dark:hover:bg-slate-600 hover:bg-slate-200 transition w-36 ">
                 <OpenInNewWindowIcon />
                 <Link
                     rel="noopener noreferrer"
