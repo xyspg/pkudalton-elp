@@ -18,7 +18,7 @@ function Header() {
           <LanguageSwitcher />
         </div>
         <div className="px-8 md:px-16 dark:text-white">
-          <h1 className={`text-4xl md:text-5xl font-bold text-left mb-2 ${locale === 'en' ? `title` : null}`}>
+          <h1 className={`text-4xl md:text-5xl font-bold text-left mb-2`}>
             {t("title")}
           </h1>
           <h2 className="text-1xl md:pt-2 text-left">
