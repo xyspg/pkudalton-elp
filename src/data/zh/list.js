@@ -1,125 +1,131 @@
-export const list = [
-  {
-    id: 1,
-    category: "科学研究",
-    title: "中国科学院大学实验探究 —— 计算光学成像",
-    duration: "5",
-    cost: "6500",
-    accommodation:"4",
-    location: "北京",
-    pdfUrl: "1.中国科学院大学实验探究--计算光学成像.pdf",
-    imgUrl: "中国科学院大学实验探究 —— 计算光学成像.png",
-  },
-  {
-    id: 2,
-    category: "科学研究",
-    title: "神经退行性疾病小鼠模型的表征和病理分析",
-    duration: "5",
-    cost: "5000",
-    location: "北京",
-    pdfUrl:
-      "2.神经退行性疾病小鼠模型的表征和病理分析.pdf",
-    imgUrl: "神经退行性疾病小鼠模型的表征和病理分析.png"
-  },
-  {
-    id: 3,
-    category: "科学研究",
-    title: "肺炎多糖结合疫苗的制备和免疫效价分析",
-    duration: "5",
-    cost: "5000",
-    location: "北京",
-    pdfUrl:
-        "3.肺炎多糖结合疫苗的制备和免疫效价分析.pdf",
-    imgUrl: "肺炎多糖结合疫苗的制备和免疫效价分析.png"
-  },
-  {
-    id: 4,
-    category: "艺术传媒",
-    title: "北京青年报·【青年纪实】深度新闻采编报道",
-    duration: "5",
-    cost: "5500-5700",
-    location: "北京",
-    pdfUrl:
-        "北京青年报.pdf",
-    imgUrl: "北京青年报·【青年纪实】深度新闻采编报道.png"
-  },
-  {
-    id: 5,
-    category: "艺术传媒",
-    title: "艺术与策展营地项目",
-    duration: "5",
-    cost: "5780",
-    location: "北京",
-    pdfUrl:
-        "5.艺术与策展营地项目.pdf",
-    imgUrl: "艺术与策展营地项目.png"
-  },
-  {
-    id: 6,
-    category: "艺术传媒",
-    title: "川西阿坝·影像宣传主题",
-    duration: "7",
-    cost: "7600",
-    location: "四川",
-    accommodation: "6",
-    pdfUrl:
-        "6.川西阿坝·影像宣传主题.pdf",
-    imgUrl: "川西阿坝·影像宣传主题.png"
-  },
-  {
-    id: 7,
-    category: "社科经济",
-    title: "北京怡宁医院·临床心理咨询和精神疾病实训",
-    duration: "5",
-    cost: "5000-5200",
-    location: "北京",
-    pdfUrl:
-        "医院.pdf",
-    imgUrl: "北京怡宁医院·临床心理咨询和精神疾病实训.png"
-  },
-  {
-    id: 8,
-    category: "社科经济",
-    title: "阿尔茨海默症探究和失智老人临床疗愈实训",
-    duration: "5",
-    cost: "5500-5700",
-    location: "北京",
-    pdfUrl:
-        "阿兹海默.pdf",
-    imgUrl: "阿尔茨海默症探究和失智老人临床疗愈实训.png"
-  },
-  {
-    id: 9,
-    category: "社科经济",
-    title: "黄山黟县·公益营销主题",
-    duration: "7",
-    accommodation: "6",
-    cost: "7500",
-    location: "黄山",
-    pdfUrl:
-        "9.黄山黟县·公益营销主题.pdf",
-    imgUrl: "黄山黟县·公益营销主题.png"
-  },
-  {
-    id: 10,
-    category: "生态探索",
-    title:"甘南藏区 - 游牧文化与草原保育",
-    duration: "8",
-    accommodation: "7",
-    cost: "7900",
-    location: "甘肃",
-    pdfUrl: "10.甘南藏区 - 游牧文化与草原保育.pdf",
-    imgUrl: "甘南藏区 - 游牧文化与草原保育.png"
-  },
-  {
-    id: 11,
-    category: "生态探索",
-    title:"辛庄生态·艺术社区·团结的社区，艺术的共建",
-    duration: "5",
-    accommodation: "2",
-    cost: "5000-5500",
-    location: "北京",
-    pdfUrl: "11.辛庄生态·艺术社区·团结的社区，艺术的共建.pdf",
-    imgUrl: "辛庄生态·艺术社区·团结的社区，艺术的共建.png"
-  },
-];
+export const list = {
+  "list": [
+    {
+      "id": 1,
+      "category": "科学研究",
+      "title": "中国科学院大学实验探究 —— 计算光学成像",
+      "duration": 5,
+      "accommodation": 4,
+      "location": "北京",
+      "lower_cost": 6500,
+      "upper_cost": 6500
+    },
+    {
+      "id": 2,
+      "category": "科学研究",
+      "title": "神经退行性疾病小鼠模型的表征和病理分析",
+      "duration": 5,
+      "accommodation": null,
+      "location": "北京",
+      "lower_cost": 5000,
+      "upper_cost": 5000
+    },
+    {
+      "id": 3,
+      "category": "科学研究",
+      "title": "天然活性分子对肿瘤微环境细胞的抑制效应研究",
+      "duration": 5,
+      "accommodation": null,
+      "location": "北京",
+      "lower_cost": 5000,
+      "upper_cost": 5000
+    },
+    {
+      "id": 4,
+      "category": "艺术传媒",
+      "title": "北京青年报·【青年纪实】深度新闻采编报道",
+      "duration": 5,
+      "accommodation": null,
+      "location": "北京",
+      "lower_cost": 5500,
+      "upper_cost": 5700
+    },
+    {
+      "id": 5,
+      "category": "艺术传媒",
+      "title": "艺术与策展营地项目",
+      "duration": 5,
+      "accommodation": null,
+      "location": "北京",
+      "lower_cost": 5780,
+      "upper_cost": 5780
+    },
+    {
+      "id": 6,
+      "category": "艺术传媒",
+      "title": "川西阿坝·影像宣传主题",
+      "duration": 7,
+      "accommodation": 6,
+      "location": "四川",
+      "lower_cost": 7600,
+      "upper_cost": 7600
+    },
+    {
+      "id": 7,
+      "category": "社科经济",
+      "title": "北京怡宁医院·临床心理咨询和精神疾病实训",
+      "duration": 5,
+      "accommodation": null,
+      "location": "北京",
+      "lower_cost": 5000,
+      "upper_cost": 5200
+    },
+    {
+      "id": 8,
+      "category": "社科经济",
+      "title": "阿尔茨海默症探究和失智老人临床疗愈实训",
+      "duration": 5,
+      "accommodation": null,
+      "location": "北京",
+      "lower_cost": 5500,
+      "upper_cost": 5700
+    },
+    {
+      "id": 9,
+      "category": "社科经济",
+      "title": "黄山黟县·公益营销主题",
+      "duration": 7,
+      "accommodation": 6,
+      "location": "黄山",
+      "lower_cost": 7500,
+      "upper_cost": 7500
+    },
+    {
+      "id": 10,
+      "category": "生态探索",
+      "title": "甘南藏区 - 游牧文化与草原保育",
+      "duration": 8,
+      "accommodation": 7,
+      "location": "甘肃",
+      "lower_cost": 7900,
+      "upper_cost": 7900
+    },
+    {
+      "id": 11,
+      "category": "生态探索",
+      "title": "辛庄生态·艺术社区·团结的社区，艺术的共建",
+      "duration": 5,
+      "accommodation": 2,
+      "location": "北京",
+      "lower_cost": 5000,
+      "upper_cost": 5500
+    }
+  ]
+}
+
+export const category = {
+  "list": [
+    {
+      "category": "科学研究"
+    },
+    {
+      "category": "社科经济"
+    },
+    {
+      "category": "生态探索"
+    },
+    {
+      "category": "艺术传媒"
+    }
+  ]
+}
